@@ -16,7 +16,7 @@ enum WebClientErros: Error{
 class ClientService{
     /*
      This class is used to retrieve raw data by passed urls.
-     */
+     */       
     
     public func fetchData(uri: String) async throws -> Data{
         guard
