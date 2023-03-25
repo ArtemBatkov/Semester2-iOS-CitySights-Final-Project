@@ -80,7 +80,8 @@ extension SightResponse{
 
 */
 struct Sight: Codable {
-    let xid, name: String
+    let xid: String?
+    let name: String
     let address: Address?
     let rate, kinds: String
     let wikidata, wikipedia: String?
@@ -99,11 +100,11 @@ struct Sight: Codable {
     
     // MARK: - Address
     struct Address: Codable {
-        let city, state: String
+        let city, state: String?
         let road: String?
         let house, houseNumber: String?
-        let country, postcode, countryCode: String
-        let stateDistrict: String
+        let country, postcode, countryCode: String?
+        let stateDistrict: String?
 
         enum CodingKeys: String, CodingKey {
             case city, road, house, state, country, postcode
