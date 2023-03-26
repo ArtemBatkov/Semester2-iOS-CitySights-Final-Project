@@ -140,7 +140,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 var mysight = try? JSONDecoder().decode(Sight.self, from: data)
                 if(mysight != nil)
                 {
-                    newFoundSights.append(mysight!)
+                    if(!mysight!.name.isEmpty){
+                        try! await SightService().getPlaceId(for: mysight!)
+                        newFoundSights.append(mysight!)
+                    }
+                    
                     //debugPrint(mysight)
                 }
             }catch{

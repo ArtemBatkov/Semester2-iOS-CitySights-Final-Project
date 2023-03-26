@@ -19,24 +19,20 @@ class ClientService{
      */       
     
     public func fetchData(uri: String) async throws -> Data{
+        let encodedURL = uri.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
         guard
-            var url = URL(string: uri)
-        else{throw WebClientErros.URLProblems}
+            var url = URL(string: encodedURL!)
+        else{
+            print(uri)
+            throw WebClientErros.URLProblems
+            
+        }
         let (data, response) = try await URLSession.shared.data(from: url)
         return data
     }
     
     
-    public func fetchDataTimeLimit(uri:String, seconds timelimit: Double) async throws -> Data{
-        guard
-            var url = URL(string: uri)
-        else{throw WebClientErros.URLProblems}
-        let sessionConfig = URLSessionConfiguration.default
-        sessionConfig.timeoutIntervalForRequest = timelimit
-        
-        let session = URLSession(configuration: sessionConfig)
-        let (data, response) = try  await session.data(from: url)
-        return data
-    }
+    
+    
     
 }

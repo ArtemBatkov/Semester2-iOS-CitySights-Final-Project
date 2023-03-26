@@ -105,12 +105,16 @@ struct Sight: Codable {
         let house, houseNumber: String?
         let country, postcode, countryCode: String?
         let stateDistrict: String?
+        let suburb: String?
+        let pedestrian: String?
+        let district: String?
 
         enum CodingKeys: String, CodingKey {
-            case city, road, house, state, country, postcode
+            case city, road, house, state, country, postcode, pedestrian, district
             case countryCode = "country_code"
             case houseNumber = "house_number"
             case stateDistrict = "state_district"
+            case suburb = "suburb"
         }
     }
     

@@ -18,6 +18,7 @@
 		1D7571F1299B1FEB0007CFA9 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7571F0299B1FEB0007CFA9 /* CityModel.swift */; };
 		1D7571F3299B227A0007CFA9 /* Sight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7571F2299B227A0007CFA9 /* Sight.swift */; };
 		1D7571F7299B25670007CFA9 /* ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7571F6299B25670007CFA9 /* ClientService.swift */; };
+		1DF884F629CFC1360015504F /* SightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF884F529CFC1360015504F /* SightService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		1D7571F0299B1FEB0007CFA9 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		1D7571F2299B227A0007CFA9 /* Sight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sight.swift; sourceTree = "<group>"; };
 		1D7571F6299B25670007CFA9 /* ClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientService.swift; sourceTree = "<group>"; };
+		1DF884F529CFC1360015504F /* SightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 		1D7571F4299B253A0007CFA9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1DF884F429CFC1170015504F /* SightService */,
 				1D7571F5299B254A0007CFA9 /* ClientServices */,
 			);
 			path = Services;
@@ -120,6 +123,14 @@
 				1D7571F6299B25670007CFA9 /* ClientService.swift */,
 			);
 			path = ClientServices;
+			sourceTree = "<group>";
+		};
+		1DF884F429CFC1170015504F /* SightService */ = {
+			isa = PBXGroup;
+			children = (
+				1DF884F529CFC1360015504F /* SightService.swift */,
+			);
+			path = SightService;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -197,6 +208,7 @@
 				1D52437A29C62A2B00E78C1B /* SightCellTableViewCell.swift in Sources */,
 				1D7571E2299B1F3E0007CFA9 /* CitiesSights.xcdatamodeld in Sources */,
 				1D7571DC299B1F3E0007CFA9 /* ViewController.swift in Sources */,
+				1DF884F629CFC1360015504F /* SightService.swift in Sources */,
 				1D7571F3299B227A0007CFA9 /* Sight.swift in Sources */,
 				1D7571D8299B1F3E0007CFA9 /* AppDelegate.swift in Sources */,
 				1D7571F7299B25670007CFA9 /* ClientService.swift in Sources */,
