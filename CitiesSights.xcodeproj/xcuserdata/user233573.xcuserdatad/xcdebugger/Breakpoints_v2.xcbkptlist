@@ -3,4 +3,54 @@
    uuid = "F1C22447-2198-471D-95DA-E3AC03647177"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "873F0D40-A600-4CBC-9366-67E8C5240795"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CitiesSights/Services/SightService/SightService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "getPlaceId(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "873F0D40-A600-4CBC-9366-67E8C5240795 - ba2cef7639b8b532"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for CitiesSights.SightService.getPlaceId(for: CitiesSights.Sight) async -&gt; Swift.String"
+                  moduleName = "CitiesSights"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233573/Desktop/Final%20Project%20Semester%202/CitiesSights/CitiesSights/Services/SightService/SightService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "7004">
+               </Location>
+               <Location
+                  uuid = "873F0D40-A600-4CBC-9366-67E8C5240795 - ba2cef7639b8b532"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for CitiesSights.SightService.getPlaceId(for: CitiesSights.Sight) async -&gt; Swift.String"
+                  moduleName = "CitiesSights"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233573/Desktop/Final%20Project%20Semester%202/CitiesSights/CitiesSights/Services/SightService/SightService.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "44"
+                  endingLineNumber = "44"
+                  offsetFromSymbolStart = "7180">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>
