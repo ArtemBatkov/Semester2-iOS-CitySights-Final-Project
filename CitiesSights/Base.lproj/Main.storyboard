@@ -36,10 +36,11 @@
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jNc-Fm-6IY">
                                                 <rect key="frame" x="197.33333333333337" y="0.0" width="195.66666666666663" height="58.333333333333336"/>
-                                                <color key="backgroundColor" red="0.11244156330000001" green="0.43814432990000002" blue="0.19386725490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="tintColor" red="0.1217014567" green="0.47422680410000001" blue="0.20983279360000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Let's Find"/>
+                                                <buttonConfiguration key="configuration" style="filled" title="Let's Find">
+                                                    <backgroundConfiguration key="background"/>
+                                                    <color key="baseBackgroundColor" red="0.11244156330000001" green="0.43814432990000002" blue="0.19386725490000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </buttonConfiguration>
                                                 <connections>
                                                     <action selector="onClickSearchCityButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ycv-Uj-AAt"/>
                                                 </connections>
@@ -54,6 +55,7 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="wbo-3n-9KL">
                                 <rect key="frame" x="0.0" y="218.33333333333331" width="393" height="633.66666666666674"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <sections/>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -80,6 +82,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="999.23664122137404" y="-1.4084507042253522"/>
+        </scene>
+        <!--Detailed Sight Page View Controller-->
+        <scene sceneID="0lf-JX-MSv">
+            <objects>
+                <viewController storyboardIdentifier="DetailedSightPageViewController" id="ebo-Dy-qjG" customClass="DetailedSightPageViewController" customModule="CitiesSights" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Q7S-Aw-mYX">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <viewLayoutGuide key="safeArea" id="wOZ-Zw-kw1"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="j3g-23-2bN"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Shz-iP-mMj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1962.5954198473282" y="7.746478873239437"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z4w-nE-ATu">

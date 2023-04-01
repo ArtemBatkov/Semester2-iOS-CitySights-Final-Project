@@ -28,6 +28,9 @@ class ClientService{
             
         }
         let (data, response) = try await URLSession.shared.data(from: url)
+        if  (data.isEmpty){
+            debugPrint("DATA IS EMPTY!!!!")
+        }
         return data
     }
     

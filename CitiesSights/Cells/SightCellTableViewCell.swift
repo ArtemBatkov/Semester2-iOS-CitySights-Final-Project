@@ -17,12 +17,16 @@ class SightCellTableViewCell: UITableViewCell {
         // Initialization code
     }
 
-    @IBOutlet weak var ImageViewSight: UIImageView!
-    
     @IBOutlet weak var TitleSight: UILabel!
     
     
+    @IBOutlet weak var ImageViewSight: UIImageView!
+    
+     
     @IBOutlet weak var ShortDescriptionSight: UILabel!
+    
+    
+     
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

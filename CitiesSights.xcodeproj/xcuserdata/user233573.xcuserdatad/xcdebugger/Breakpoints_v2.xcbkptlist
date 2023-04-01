@@ -7,49 +7,49 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "873F0D40-A600-4CBC-9366-67E8C5240795"
+            uuid = "E5F2C5B3-3E8E-49BF-9F1F-4B7055D80E3B"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CitiesSights/Services/SightService/SightService.swift"
+            filePath = "CitiesSights/Services/ClientServices/ClientService.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
-            landmarkName = "getPlaceId(for:)"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
+            landmarkName = "fetchData(uri:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "873F0D40-A600-4CBC-9366-67E8C5240795 - ba2cef7639b8b532"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for CitiesSights.SightService.getPlaceId(for: CitiesSights.Sight) async -&gt; Swift.String"
-                  moduleName = "CitiesSights"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user233573/Desktop/Final%20Project%20Semester%202/CitiesSights/CitiesSights/Services/SightService/SightService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "7004">
-               </Location>
-               <Location
-                  uuid = "873F0D40-A600-4CBC-9366-67E8C5240795 - ba2cef7639b8b532"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for CitiesSights.SightService.getPlaceId(for: CitiesSights.Sight) async -&gt; Swift.String"
-                  moduleName = "CitiesSights"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/user233573/Desktop/Final%20Project%20Semester%202/CitiesSights/CitiesSights/Services/SightService/SightService.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "44"
-                  endingLineNumber = "44"
-                  offsetFromSymbolStart = "7180">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BB0AE678-683F-4E0A-A59D-9FA7DBAAA595"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CitiesSights/ViewControllers/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "312"
+            endingLineNumber = "312"
+            landmarkName = "GetSightsListAsync()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3300B6D2-2057-4CCB-8FB2-8C443FBC9A44"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CitiesSights/ViewControllers/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "315"
+            endingLineNumber = "315"
+            landmarkName = "GetSightsListAsync()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
