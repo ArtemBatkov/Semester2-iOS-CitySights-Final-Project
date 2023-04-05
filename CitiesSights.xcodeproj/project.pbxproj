@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1D52437A29C62A2B00E78C1B /* SightCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D52437829C62A2B00E78C1B /* SightCellTableViewCell.swift */; };
 		1D52437B29C62A2B00E78C1B /* SightCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D52437929C62A2B00E78C1B /* SightCellTableViewCell.xib */; };
+		1D6B115329DDEC2E00E2495C /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6B115229DDEC2D00E2495C /* HistoryModel.swift */; };
+		1D6B115529DDEC4E00E2495C /* HistoryListModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6B115429DDEC4E00E2495C /* HistoryListModel.swift */; };
+		1D6B115729DDEC7A00E2495C /* SearchHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6B115629DDEC7A00E2495C /* SearchHistoryViewController.swift */; };
 		1D7571D8299B1F3E0007CFA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7571D7299B1F3E0007CFA9 /* AppDelegate.swift */; };
 		1D7571DA299B1F3E0007CFA9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7571D9299B1F3E0007CFA9 /* SceneDelegate.swift */; };
 		1D7571DC299B1F3E0007CFA9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7571DB299B1F3E0007CFA9 /* ViewController.swift */; };
@@ -25,6 +28,9 @@
 /* Begin PBXFileReference section */
 		1D52437829C62A2B00E78C1B /* SightCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightCellTableViewCell.swift; sourceTree = "<group>"; };
 		1D52437929C62A2B00E78C1B /* SightCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SightCellTableViewCell.xib; sourceTree = "<group>"; };
+		1D6B115229DDEC2D00E2495C /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
+		1D6B115429DDEC4E00E2495C /* HistoryListModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryListModel.swift; sourceTree = "<group>"; };
+		1D6B115629DDEC7A00E2495C /* SearchHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHistoryViewController.swift; sourceTree = "<group>"; };
 		1D7571D4299B1F3E0007CFA9 /* CitiesSights.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CitiesSights.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1D7571D7299B1F3E0007CFA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1D7571D9299B1F3E0007CFA9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -98,6 +104,8 @@
 			children = (
 				1D7571F0299B1FEB0007CFA9 /* CityModel.swift */,
 				1D7571F2299B227A0007CFA9 /* Sight.swift */,
+				1D6B115229DDEC2D00E2495C /* HistoryModel.swift */,
+				1D6B115429DDEC4E00E2495C /* HistoryListModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -107,6 +115,7 @@
 			children = (
 				1D7571DB299B1F3E0007CFA9 /* ViewController.swift */,
 				1DFB4C7029D0D42300A36648 /* DetailedSightPageViewController.swift */,
+				1D6B115629DDEC7A00E2495C /* SearchHistoryViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -207,16 +216,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D6B115529DDEC4E00E2495C /* HistoryListModel.swift in Sources */,
 				1D7571F1299B1FEB0007CFA9 /* CityModel.swift in Sources */,
 				1D52437A29C62A2B00E78C1B /* SightCellTableViewCell.swift in Sources */,
 				1D7571E2299B1F3E0007CFA9 /* CitiesSights.xcdatamodeld in Sources */,
 				1D7571DC299B1F3E0007CFA9 /* ViewController.swift in Sources */,
 				1DF884F629CFC1360015504F /* SightService.swift in Sources */,
+				1D6B115329DDEC2E00E2495C /* HistoryModel.swift in Sources */,
 				1D7571F3299B227A0007CFA9 /* Sight.swift in Sources */,
 				1D7571D8299B1F3E0007CFA9 /* AppDelegate.swift in Sources */,
 				1DFB4C7129D0D42300A36648 /* DetailedSightPageViewController.swift in Sources */,
 				1D7571F7299B25670007CFA9 /* ClientService.swift in Sources */,
 				1D7571DA299B1F3E0007CFA9 /* SceneDelegate.swift in Sources */,
+				1D6B115729DDEC7A00E2495C /* SearchHistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

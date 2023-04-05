@@ -21,6 +21,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     @IBOutlet weak var table: UITableView!
     
+    
+    @IBOutlet weak var HistoryButton: UIBarButtonItem!
+    
+    
+    
+    
+    
     public var footerView: UIView!
     public var loadMore: UIButton!
     public var MyCity: CityModel? = nil
@@ -171,6 +178,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    private func AddNewRecordToHistory(record: String){
+        var history = HistoryModel(_historyName: record)
+        HistoryListModel.addToHistoryList(new: history)
+    }
+    
     
     private func RequestChunk(list sliced: [SightCollection.Feature]) async -> [Sight]{
         var newFoundSights: [Sight] = [Sight]()
@@ -270,6 +282,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             loadMore.isHidden = false
             Sights.removeAll()
             table.reloadData()
+            print("Test 0")
+            AddNewRecordToHistory(record: CityTextField.text!)
             StartSearchSpinner()
             print("Test1")
             try! await GetCityAsync()
@@ -340,10 +354,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    
-    
+ 
   
     
+    @IBAction func onHistoryButtonClick(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(identifier: "SearchHistoryViewController") as? SearchHistoryViewController{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     
     
