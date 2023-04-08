@@ -10,7 +10,7 @@ import MapKit
 
 class DetailedSightPageViewController: UIViewController {
     
-    
+    public var City: CityModel?
     
     public var ImageURL = ""
     public let ImageDefault = UIImage(named: "sight_blank")
@@ -64,6 +64,9 @@ class DetailedSightPageViewController: UIViewController {
     
     @objc func FavouriteButtonTapped(sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        if(City != nil){
+            TripList.addToTripList(new: City!)
+        }
     }
     
     private func BuildThePage() async{

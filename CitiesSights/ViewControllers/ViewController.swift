@@ -75,7 +75,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             let controller = DetailedSightPageViewController()
              
             
-            
+            vc.City = MyCity
             
             let cell = Sights[indexPath.row]
             if let imageURL = cell.preview?.source{
@@ -358,6 +358,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
+    @IBAction func onTripButtonClick(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(identifier: "TripViewController") as? TripViewController{
+            let controller = TripViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
     
     
     @IBAction func onHistoryButtonClick(_ sender: Any) {
@@ -370,30 +376,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-    
-    
-    
-    
-    
-    
-    
+     
     
     
     private let APIKEY = "5ae2e3f221c38a28845f05b62f0092f270a88190119b3678a057dd4a"
-    
-    
-    
-    
-    
     private var sights: SightCollection?
-    
-    @IBAction func Button3_DetailedSightesInfo(_ sender: Any){
-        //----------------MULTIPLE-TEST----------------//
-        var attempts = 0
-    }
-    
-    
-    
     
 }
 

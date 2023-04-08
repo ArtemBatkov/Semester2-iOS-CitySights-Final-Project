@@ -15,7 +15,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIScrollViewDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        Task{
+            try! await FillFakeData()
+        }
         return true
+    }
+    
+    private func FillFakeData()async throws{
+        let code = "ru"
+        let names = ["Rostov-on-Don","Krasnodar","Moscow"]
+        for name in names {
+            var url = "https://api.opentripmap.com/0.1/en/places/geoname?name=\(name)&country=\(code)&apikey=5ae2e3f221c38a28845f05b62f0092f270a88190119b3678a057dd4a".lowercased()
+            var data = try! await ClientService().fetchData(uri:url)
+            var json = try! JSONSerialization.jsonObject(with: data) as? [String:Any]
+            if(json?["status"] as! String != "OK"){
+                throw WebClientErros.PageNotFound;
+            }
+            var City = try! JSONDecoder().decode(CityModel.self,from: data)
+            TripList.addToTripList(new: City)
+        }
     }
 
     // MARK: UISceneSession Lifecycle

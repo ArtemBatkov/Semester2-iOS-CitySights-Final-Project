@@ -21,6 +21,10 @@
 		1D7571F1299B1FEB0007CFA9 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7571F0299B1FEB0007CFA9 /* CityModel.swift */; };
 		1D7571F3299B227A0007CFA9 /* Sight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7571F2299B227A0007CFA9 /* Sight.swift */; };
 		1D7571F7299B25670007CFA9 /* ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7571F6299B25670007CFA9 /* ClientService.swift */; };
+		1D8880C529E1ECB700A3852A /* TripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8880C429E1ECB700A3852A /* TripList.swift */; };
+		1D8880C729E1EDA400A3852A /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8880C629E1EDA400A3852A /* TripViewController.swift */; };
+		1D8880CE29E1FED200A3852A /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8880CC29E1FED200A3852A /* TripTableViewCell.swift */; };
+		1D8880CF29E1FED200A3852A /* TripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D8880CD29E1FED200A3852A /* TripTableViewCell.xib */; };
 		1DF884F629CFC1360015504F /* SightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF884F529CFC1360015504F /* SightService.swift */; };
 		1DFB4C7129D0D42300A36648 /* DetailedSightPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB4C7029D0D42300A36648 /* DetailedSightPageViewController.swift */; };
 /* End PBXBuildFile section */
@@ -42,6 +46,10 @@
 		1D7571F0299B1FEB0007CFA9 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		1D7571F2299B227A0007CFA9 /* Sight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sight.swift; sourceTree = "<group>"; };
 		1D7571F6299B25670007CFA9 /* ClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientService.swift; sourceTree = "<group>"; };
+		1D8880C429E1ECB700A3852A /* TripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripList.swift; sourceTree = "<group>"; };
+		1D8880C629E1EDA400A3852A /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
+		1D8880CC29E1FED200A3852A /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
+		1D8880CD29E1FED200A3852A /* TripTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripTableViewCell.xib; sourceTree = "<group>"; };
 		1DF884F529CFC1360015504F /* SightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightService.swift; sourceTree = "<group>"; };
 		1DFB4C7029D0D42300A36648 /* DetailedSightPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailedSightPageViewController.swift; path = CitiesSights/Services/SightService/DetailedSightPageViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -62,6 +70,8 @@
 			children = (
 				1D52437829C62A2B00E78C1B /* SightCellTableViewCell.swift */,
 				1D52437929C62A2B00E78C1B /* SightCellTableViewCell.xib */,
+				1D8880CC29E1FED200A3852A /* TripTableViewCell.swift */,
+				1D8880CD29E1FED200A3852A /* TripTableViewCell.xib */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -106,6 +116,7 @@
 				1D7571F2299B227A0007CFA9 /* Sight.swift */,
 				1D6B115229DDEC2D00E2495C /* HistoryModel.swift */,
 				1D6B115429DDEC4E00E2495C /* HistoryListModel.swift */,
+				1D8880C429E1ECB700A3852A /* TripList.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -116,6 +127,7 @@
 				1D7571DB299B1F3E0007CFA9 /* ViewController.swift */,
 				1DFB4C7029D0D42300A36648 /* DetailedSightPageViewController.swift */,
 				1D6B115629DDEC7A00E2495C /* SearchHistoryViewController.swift */,
+				1D8880C629E1EDA400A3852A /* TripViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -203,6 +215,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D8880CF29E1FED200A3852A /* TripTableViewCell.xib in Resources */,
 				1D7571E4299B1F3F0007CFA9 /* Assets.xcassets in Resources */,
 				1D7571DF299B1F3E0007CFA9 /* Main.storyboard in Resources */,
 				1D52437B29C62A2B00E78C1B /* SightCellTableViewCell.xib in Resources */,
@@ -220,14 +233,17 @@
 				1D7571F1299B1FEB0007CFA9 /* CityModel.swift in Sources */,
 				1D52437A29C62A2B00E78C1B /* SightCellTableViewCell.swift in Sources */,
 				1D7571E2299B1F3E0007CFA9 /* CitiesSights.xcdatamodeld in Sources */,
+				1D8880CE29E1FED200A3852A /* TripTableViewCell.swift in Sources */,
 				1D7571DC299B1F3E0007CFA9 /* ViewController.swift in Sources */,
 				1DF884F629CFC1360015504F /* SightService.swift in Sources */,
+				1D8880C729E1EDA400A3852A /* TripViewController.swift in Sources */,
 				1D6B115329DDEC2E00E2495C /* HistoryModel.swift in Sources */,
 				1D7571F3299B227A0007CFA9 /* Sight.swift in Sources */,
 				1D7571D8299B1F3E0007CFA9 /* AppDelegate.swift in Sources */,
 				1DFB4C7129D0D42300A36648 /* DetailedSightPageViewController.swift in Sources */,
 				1D7571F7299B25670007CFA9 /* ClientService.swift in Sources */,
 				1D7571DA299B1F3E0007CFA9 /* SceneDelegate.swift in Sources */,
+				1D8880C529E1ECB700A3852A /* TripList.swift in Sources */,
 				1D6B115729DDEC7A00E2495C /* SearchHistoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
