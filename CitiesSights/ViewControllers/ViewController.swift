@@ -9,12 +9,12 @@ import UIKit
 
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
-
+    
     @IBOutlet weak var CityTextField: UITextField!
     
     
     @IBOutlet weak var CountryCodeTextField: UITextField!
-
+    
     
     @IBOutlet weak var SearchCityButton: UIButton!
     
@@ -51,9 +51,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         footerView.isHidden = true
         self.table.tableFooterView = footerView
         
-       // loadMore.addTarget(self,
-           //                action: #selector(LoadMore),
-             //              for: .touchUpInside)
+        // loadMore.addTarget(self,
+        //                action: #selector(LoadMore),
+        //              for: .touchUpInside)
         
         loadMore.addTarget(self, action: #selector(self.LoadMore), for: .touchUpInside)
         
@@ -73,6 +73,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(identifier: "DetailedSightPageViewController") as? DetailedSightPageViewController{
             let controller = DetailedSightPageViewController()
+             
+            
+            
             
             let cell = Sights[indexPath.row]
             if let imageURL = cell.preview?.source{
@@ -195,10 +198,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                 var mysight = try? JSONDecoder().decode(Sight.self, from: data)
                 if(mysight != nil)
                 {
-//                    if(!mysight!.name.isEmpty){
-//                        try! await SightService().getPlaceId(for: mysight!)
-//                        newFoundSights.append(mysight!)
-//                    }
+                    //                    if(!mysight!.name.isEmpty){
+                    //                        try! await SightService().getPlaceId(for: mysight!)
+                    //                        newFoundSights.append(mysight!)
+                    //                    }
                     newFoundSights.append(mysight!)
                     //debugPrint(mysight)
                 }
@@ -209,7 +212,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return  newFoundSights
     }
     
-
+    
     
     
     
@@ -219,7 +222,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             footerView.isHidden = true
             return;
         }
-                   
+        
         let position = scrollView.contentOffset.y
         if(position>(table.contentSize.height-100-scrollView.frame.size.height)){
             footerView.isHidden = false
@@ -236,7 +239,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return Sights.count
     }
     
-  
+    
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -296,7 +299,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             //table.reloadData()
             //print("Test4")
             
-           
+            
         }
     }
     
@@ -308,16 +311,16 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let name = CityTextField.text;
         let code = CountryCodeTextField.text;
         var url = "https://api.opentripmap.com/0.1/en/places/geoname?name=\(name!)&country=\(code!)&apikey=5ae2e3f221c38a28845f05b62f0092f270a88190119b3678a057dd4a".lowercased()
-       
-                var data = try! await ClientService().fetchData(uri:url)
-                var json = try! JSONSerialization.jsonObject(with: data) as? [String:Any]
-                print(json)
-                if(json?["status"] as! String != "OK"){
-                    throw WebClientErros.PageNotFound;
-                }
-                let City = try! JSONDecoder().decode(CityModel.self,from: data)
-                MyCity = City
-      
+        
+        var data = try! await ClientService().fetchData(uri:url)
+        var json = try! JSONSerialization.jsonObject(with: data) as? [String:Any]
+        print(json)
+        if(json?["status"] as! String != "OK"){
+            throw WebClientErros.PageNotFound;
+        }
+        let City = try! JSONDecoder().decode(CityModel.self,from: data)
+        MyCity = City
+        
     }
     
     
@@ -332,21 +335,21 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         var lat = MyCity!.CityLat
         var lon = MyCity!.CityLon
         var radius = 1000*30// 30km or 30,000m
-//        let url = "https://api.opentripmap.com/0.1/en/places/radius?radius=\(radius)&lon=\(lon)&lat=\(lat)&src_geom=wikidata&src_attr=wikidata&apikey=\(APIKEY)".lowercased()
+        //        let url = "https://api.opentripmap.com/0.1/en/places/radius?radius=\(radius)&lon=\(lon)&lat=\(lat)&src_geom=wikidata&src_attr=wikidata&apikey=\(APIKEY)".lowercased()
         let url = "https://api.opentripmap.com/0.1/en/places/radius?radius=\(radius)&lon=\(lon)&lat=\(lat)&apikey=\(APIKEY)".lowercased()
         do{
-                var data = try! await ClientService().fetchData(uri: url)
-                var json = try! JSONSerialization.jsonObject(with: data)
-                print(json)
-                sights = try! JSONDecoder().decode(SightCollection.self,from: data)
-                if let quantity = sights?.features.count{
-                    _end = quantity
-                    _start = 0
-                }
-                else{
-                    _end = 0
-                    _start = 0
-                }
+            var data = try! await ClientService().fetchData(uri: url)
+            var json = try! JSONSerialization.jsonObject(with: data)
+            print(json)
+            sights = try! JSONDecoder().decode(SightCollection.self,from: data)
+            if let quantity = sights?.features.count{
+                _end = quantity
+                _start = 0
+            }
+            else{
+                _end = 0
+                _start = 0
+            }
             
         }catch{
             print(error)
@@ -354,11 +357,14 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
- 
-  
+    
+    
     
     @IBAction func onHistoryButtonClick(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "SearchHistoryViewController") as? SearchHistoryViewController{
+            let controller = SearchHistoryViewController()
+            controller.historyDelegate = self
+            vc.historyDelegate = controller.historyDelegate
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -369,31 +375,35 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     
     
- 
+    
     
     
     
     private let APIKEY = "5ae2e3f221c38a28845f05b62f0092f270a88190119b3678a057dd4a"
     
-  
     
-   
+    
+    
     
     private var sights: SightCollection?
     
     @IBAction func Button3_DetailedSightesInfo(_ sender: Any){
         //----------------MULTIPLE-TEST----------------//
-            var attempts = 0
-            
-            
-        
-        
-        
-        
- 
+        var attempts = 0
     }
     
- 
     
+    
+    
+}
+
+extension ViewController: ReturnHistoryRecordDelegate{
+    func returnHistoryRecord(name: String) {
+        self.dismiss(animated: true){
+            if(!name.isEmpty){
+                self.CityTextField.text = name
+            }
+        }
+    }
 }
 

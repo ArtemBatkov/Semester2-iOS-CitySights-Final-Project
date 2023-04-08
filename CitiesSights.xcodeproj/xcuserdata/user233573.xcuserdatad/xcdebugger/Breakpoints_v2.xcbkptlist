@@ -7,48 +7,64 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E5F2C5B3-3E8E-49BF-9F1F-4B7055D80E3B"
-            shouldBeEnabled = "Yes"
+            uuid = "A8829800-3E9A-4FE8-AA65-558153BDE243"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CitiesSights/Services/ClientServices/ClientService.swift"
+            filePath = "CitiesSights/ViewControllers/SearchHistoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "fetchData(uri:)"
+            startingLineNumber = "88"
+            endingLineNumber = "88"
+            landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A8829800-3E9A-4FE8-AA65-558153BDE243 - 192cff73f356a9f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CitiesSights.SearchHistoryViewController.searchBar(_: __C.UISearchBar, textDidChange: Swift.String) -&gt; ()"
+                  moduleName = "CitiesSights"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233573/Desktop/Final%20Project%20Semester%202/Semester2-iOS-CitySights-Final-Project/CitiesSights/ViewControllers/SearchHistoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "1360">
+               </Location>
+               <Location
+                  uuid = "A8829800-3E9A-4FE8-AA65-558153BDE243 - 192cff73f356a9f2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CitiesSights.SearchHistoryViewController.searchBar(_: __C.UISearchBar, textDidChange: Swift.String) -&gt; ()"
+                  moduleName = "CitiesSights"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233573/Desktop/Final%20Project%20Semester%202/Semester2-iOS-CitySights-Final-Project/CitiesSights/ViewControllers/SearchHistoryViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "77"
+                  endingLineNumber = "77"
+                  offsetFromSymbolStart = "1372">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "BB0AE678-683F-4E0A-A59D-9FA7DBAAA595"
+            uuid = "48DA17EA-66FF-4492-90B5-B9C556DEBA50"
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CitiesSights/ViewControllers/ViewController.swift"
+            filePath = "CitiesSights/ViewControllers/SearchHistoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "326"
-            endingLineNumber = "326"
-            landmarkName = "GetSightsListAsync()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3300B6D2-2057-4CCB-8FB2-8C443FBC9A44"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CitiesSights/ViewControllers/ViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "329"
-            endingLineNumber = "329"
-            landmarkName = "GetSightsListAsync()"
+            startingLineNumber = "86"
+            endingLineNumber = "86"
+            landmarkName = "searchBar(_:textDidChange:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

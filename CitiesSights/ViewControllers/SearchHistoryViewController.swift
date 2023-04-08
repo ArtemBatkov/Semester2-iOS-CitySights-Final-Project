@@ -7,17 +7,21 @@
 
 import UIKit
 
+protocol ReturnHistoryRecordDelegate{
+    func returnHistoryRecord(name: String)
+}
 
 
-class SearchHistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-   
+class SearchHistoryViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UISearchBarDelegate {
+    
+    var historyDelegate: ReturnHistoryRecordDelegate?
+    
     private let _showPolygones = false;
     
     private let SearchBar = UISearchBar()
     private let stackView = UIStackView()
     private let table = UITableView()
     
- 
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,22 +34,62 @@ class SearchHistoryViewController: UIViewController, UITableViewDataSource, UITa
         
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         
+        SearchBar.delegate = self
+        
+        //DEBUG MODE ONLY
+        FillFakeHistory()
     }
     
+    private func FillFakeHistory(){
+        HistoryListModel.addToHistoryList(new: HistoryModel(_historyName: "Moscow"))
+        HistoryListModel.addToHistoryList(new: HistoryModel(_historyName: "Rostov-on-Don"))
+        HistoryListModel.addToHistoryList(new:    HistoryModel(_historyName: "Rostov"))
+        HistoryListModel.addToHistoryList(new:   HistoryModel(_historyName: "Morokko"))
+        HistoryListModel.addToHistoryList(new:    HistoryModel(_historyName: "Rostislav"))
+        HistoryListModel.addToHistoryList(new:   HistoryModel(_historyName: "Sudbury"))
+        HistoryListModel.addToHistoryList(new:   HistoryModel(_historyName: "Toronto"))
+        HistoryListModel.addToHistoryList(new:    HistoryModel(_historyName: "Tokyo"))
+        HistoryListModel.addToHistoryList(new:    HistoryModel(_historyName: "Vancouver"))
+        HistoryListModel.addToHistoryList(new:    HistoryModel(_historyName: "Vladimir"))
+        FilteredHistory = HistoryListModel.getHistoryList()
+    }
+    
+    
+    private var FilteredHistory = [HistoryModel]()
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        HistoryListModel.getHistoryList().count
+        FilteredHistory.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = HistoryListModel.getHistoryList()[indexPath.row].getHistoryName()
+        cell.textLabel?.text = FilteredHistory[indexPath.row].getHistoryName()
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let name = FilteredHistory[indexPath.row].getHistoryName()
+        print("selected: \(name)")
+        if (name != nil){
+            historyDelegate?.returnHistoryRecord(name: name)
+            _ = navigationController?.popViewController(animated: true)
+        }
+        
+    }
     
     
+    //S----------------SEARCH-------------------//
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        var content = searchText
+        if(content.isEmpty){
+            FilteredHistory = HistoryListModel.getHistoryList()
+        }else{
+            FilteredHistory = HistoryListModel.getHistoryList().filter ({ $0.getHistoryName().lowercased().contains(content.lowercased()) })
+        }
+        table.reloadData()
+    }
     
-    
+    //E----------------SEARCH-------------------//
     
     
     //Page Setuping
