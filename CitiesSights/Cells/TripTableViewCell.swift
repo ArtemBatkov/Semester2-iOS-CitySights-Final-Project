@@ -8,14 +8,23 @@
 import UIKit
 
 class TripTableViewCell: UITableViewCell {
-   
+    
     private let showPolyhones = !true
     
     private let stackView = UIStackView()
-    private var Avatar: UIImageView?
+    public var Avatar: UIImageView = UIImageView()
     private var Title: UILabel = UILabel()
     
-    public var avatar: Data?
+    public var avatar: Data? = nil {
+        didSet{
+            if let avatarData = avatar {
+                Avatar.image = UIImage(data: avatarData)
+            } else {
+                Avatar.image = defAvatar
+            }
+        }
+    }
+    
     //public var title: String = ""
     
     public var title: String = "" {
@@ -24,18 +33,21 @@ class TripTableViewCell: UITableViewCell {
         }
     }
     
-    public var defAvatar = UIImage(named: "sight_blank")
+    
+    
+    public var defAvatar = UIImage(named: "trip_blank")
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        
         Title.text = title
         SetUpCell()
     }
-
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
+    
     private func SetUpCell(){
         //stack adj
         stackView.axis = .vertical
@@ -65,20 +77,16 @@ class TripTableViewCell: UITableViewCell {
         ])
         horizontal.layoutMargins = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
         horizontal.isLayoutMarginsRelativeArrangement = true
-
+        
         //Image
-        if(avatar == nil){
-            Avatar = UIImageView(image: defAvatar)
-        }
-        else{
-            Avatar = UIImageView(image: UIImage(data: avatar!))
-        }
-        Avatar!.contentMode = .scaleAspectFit
-        Avatar!.translatesAutoresizingMaskIntoConstraints = false
-        horizontal.addArrangedSubview(Avatar!)
-        Avatar!.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        Avatar!.widthAnchor.constraint(equalTo: horizontal.widthAnchor, multiplier: 0.3).isActive = true
-
+        
+        Avatar.contentMode = .scaleAspectFit
+        Avatar.translatesAutoresizingMaskIntoConstraints = false
+        horizontal.addArrangedSubview(Avatar)
+        Avatar.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        Avatar.widthAnchor.constraint(equalTo: horizontal.widthAnchor, multiplier: 0.3).isActive = true
+        Avatar.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        
         //Title
         //Title.text = title
         Title.font = UIFont.boldSystemFont(ofSize: 25)
@@ -90,7 +98,7 @@ class TripTableViewCell: UITableViewCell {
         if(showPolyhones){
             stackView.backgroundColor = .red
             horizontal.backgroundColor = .blue
-            Avatar!.backgroundColor = .systemYellow
+            Avatar.backgroundColor = .systemYellow
             Title.backgroundColor = .gray
         }
     }

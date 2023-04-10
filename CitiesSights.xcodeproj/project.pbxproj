@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1D1FB21429E35651003CE96E /* GooglePlaceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D1FB21329E35651003CE96E /* GooglePlaceService.swift */; };
 		1D52437A29C62A2B00E78C1B /* SightCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D52437829C62A2B00E78C1B /* SightCellTableViewCell.swift */; };
 		1D52437B29C62A2B00E78C1B /* SightCellTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D52437929C62A2B00E78C1B /* SightCellTableViewCell.xib */; };
 		1D6B115329DDEC2E00E2495C /* HistoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D6B115229DDEC2D00E2495C /* HistoryModel.swift */; };
@@ -21,6 +22,7 @@
 		1D7571F1299B1FEB0007CFA9 /* CityModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7571F0299B1FEB0007CFA9 /* CityModel.swift */; };
 		1D7571F3299B227A0007CFA9 /* Sight.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7571F2299B227A0007CFA9 /* Sight.swift */; };
 		1D7571F7299B25670007CFA9 /* ClientService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D7571F6299B25670007CFA9 /* ClientService.swift */; };
+		1D86D04629E439C40063BBCD /* TripDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D86D04529E439C40063BBCD /* TripDetailedViewController.swift */; };
 		1D8880C529E1ECB700A3852A /* TripList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8880C429E1ECB700A3852A /* TripList.swift */; };
 		1D8880C729E1EDA400A3852A /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8880C629E1EDA400A3852A /* TripViewController.swift */; };
 		1D8880CE29E1FED200A3852A /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8880CC29E1FED200A3852A /* TripTableViewCell.swift */; };
@@ -30,6 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D1FB21329E35651003CE96E /* GooglePlaceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GooglePlaceService.swift; sourceTree = "<group>"; };
 		1D52437829C62A2B00E78C1B /* SightCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightCellTableViewCell.swift; sourceTree = "<group>"; };
 		1D52437929C62A2B00E78C1B /* SightCellTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SightCellTableViewCell.xib; sourceTree = "<group>"; };
 		1D6B115229DDEC2D00E2495C /* HistoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryModel.swift; sourceTree = "<group>"; };
@@ -46,6 +49,7 @@
 		1D7571F0299B1FEB0007CFA9 /* CityModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityModel.swift; sourceTree = "<group>"; };
 		1D7571F2299B227A0007CFA9 /* Sight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sight.swift; sourceTree = "<group>"; };
 		1D7571F6299B25670007CFA9 /* ClientService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClientService.swift; sourceTree = "<group>"; };
+		1D86D04529E439C40063BBCD /* TripDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripDetailedViewController.swift; sourceTree = "<group>"; };
 		1D8880C429E1ECB700A3852A /* TripList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripList.swift; sourceTree = "<group>"; };
 		1D8880C629E1EDA400A3852A /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		1D8880CC29E1FED200A3852A /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
@@ -65,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D1FB21229E35635003CE96E /* GooglePlaceService */ = {
+			isa = PBXGroup;
+			children = (
+				1D1FB21329E35651003CE96E /* GooglePlaceService.swift */,
+			);
+			path = GooglePlaceService;
+			sourceTree = "<group>";
+		};
 		1D52437529C629B500E78C1B /* Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +140,7 @@
 				1DFB4C7029D0D42300A36648 /* DetailedSightPageViewController.swift */,
 				1D6B115629DDEC7A00E2495C /* SearchHistoryViewController.swift */,
 				1D8880C629E1EDA400A3852A /* TripViewController.swift */,
+				1D86D04529E439C40063BBCD /* TripDetailedViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -135,6 +148,7 @@
 		1D7571F4299B253A0007CFA9 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1D1FB21229E35635003CE96E /* GooglePlaceService */,
 				1DF884F429CFC1170015504F /* SightService */,
 				1D7571F5299B254A0007CFA9 /* ClientServices */,
 			);
@@ -233,11 +247,13 @@
 				1D7571F1299B1FEB0007CFA9 /* CityModel.swift in Sources */,
 				1D52437A29C62A2B00E78C1B /* SightCellTableViewCell.swift in Sources */,
 				1D7571E2299B1F3E0007CFA9 /* CitiesSights.xcdatamodeld in Sources */,
+				1D86D04629E439C40063BBCD /* TripDetailedViewController.swift in Sources */,
 				1D8880CE29E1FED200A3852A /* TripTableViewCell.swift in Sources */,
 				1D7571DC299B1F3E0007CFA9 /* ViewController.swift in Sources */,
 				1DF884F629CFC1360015504F /* SightService.swift in Sources */,
 				1D8880C729E1EDA400A3852A /* TripViewController.swift in Sources */,
 				1D6B115329DDEC2E00E2495C /* HistoryModel.swift in Sources */,
+				1D1FB21429E35651003CE96E /* GooglePlaceService.swift in Sources */,
 				1D7571F3299B227A0007CFA9 /* Sight.swift in Sources */,
 				1D7571D8299B1F3E0007CFA9 /* AppDelegate.swift in Sources */,
 				1DFB4C7129D0D42300A36648 /* DetailedSightPageViewController.swift in Sources */,

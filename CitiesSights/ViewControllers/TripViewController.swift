@@ -35,8 +35,26 @@ class TripViewController: UIViewController, UITableViewDelegate, UITableViewData
         debugPrint(name)
         //cell.Title.text = name
         cell.title = name
+        let photos = TripList.getTripList()[indexPath.row].CityGooglePlacePhotoData
+        if photos != nil && !photos.isEmpty{
+            cell.avatar = photos[0]
+            //cell.Avatar = UIImageView(image: UIImage(data: photos[0]!))
+        }
+        
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath) as? TripTableViewCell {
+            print(cell.title) // обращаемся к свойству title ячейки
+            if let avatar = cell.avatar {
+                debugPrint(avatar) // обращаемся к свойству avatar ячейки
+                debugPrint(String(data: avatar, encoding: .utf8))
+            }
+            debugPrint(cell.Avatar.image)
+        }
+    }
+
     
     //E----------Table--------------//
     

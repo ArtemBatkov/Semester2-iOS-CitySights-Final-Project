@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIScrollViewDelegate {
     
     private func FillFakeData()async throws{
         let code = "ru"
-        let names = ["Rostov-on-Don","Krasnodar","Moscow"]
+        let names = ["Moscow","Rostov-on-Don","Krasnodar"]
         for name in names {
             var url = "https://api.opentripmap.com/0.1/en/places/geoname?name=\(name)&country=\(code)&apikey=5ae2e3f221c38a28845f05b62f0092f270a88190119b3678a057dd4a".lowercased()
             var data = try! await ClientService().fetchData(uri:url)
@@ -32,6 +32,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIScrollViewDelegate {
                 throw WebClientErros.PageNotFound;
             }
             var City = try! JSONDecoder().decode(CityModel.self,from: data)
+            var id = try! await GooglePlayService().getGoogleCityID(find: City)
+            City.CityGooglePlaceId = id
+            var photos = try! await GooglePlayService().getGooglePhotoCandidates(place: id)
+            City.CityGooglePlacePhotoReferences = photos
+            var DataList = await GooglePlayService().getGooglePhotoAsData(candidates: photos)
+            debugPrint("DataList size: \(DataList.count) --------")
+            City.CityGooglePlacePhotoData = DataList
             TripList.addToTripList(new: City)
         }
     }
