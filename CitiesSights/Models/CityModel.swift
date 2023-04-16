@@ -16,7 +16,39 @@ struct CityModel: Decodable {
     
     var CityGooglePlaceId: String?
     var CityGooglePlacePhotoReferences: [String?] = []
-    var CityGooglePlacePhotoData: [Data?] = []
+    var CityGooglePlacePhotoData: [Data?] {
+        get{
+            return _cityGooglePlacePhotoData
+        }
+        set{
+            _cityGooglePlacePhotoData = newValue
+            if(!newValue.isEmpty && CityDefaultBackgroundData == nil){
+                CityDefaultBackgroundData = _cityGooglePlacePhotoData[0];
+            }
+        }
+        
+    }
+
+
+    private var _cityGooglePlacePhotoData: [Data?] = []
+
+
+    public var CityDefaultBackgroundData: Data? {
+        get {
+            return _defaultbackData
+        }
+        set {
+            _defaultbackData = newValue;
+
+        }
+    }
+    private var _defaultbackData: Data?;
+    
+    
+    public var FavouriteSights: [Sight] = []
+    
+    
+    
     
     enum CodingKeys: String, CodingKey{
         case CityName = "name"

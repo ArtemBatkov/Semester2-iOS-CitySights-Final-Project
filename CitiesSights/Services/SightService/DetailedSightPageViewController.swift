@@ -8,7 +8,21 @@
 import UIKit
 import MapKit
 
+enum DetailedPageErrors: Error{
+    case SightIsNull;
+    case CityIsNull;
+}
+
+protocol UpdateTheCityDelegate{
+    func updateTheCity(city: CityModel)
+}
+
+
 class DetailedSightPageViewController: UIViewController {
+    
+    private var WereUpdatesHere = false;
+    
+    public var updateCityDelegate: UpdateTheCityDelegate?
     
     public var City: CityModel?
     
@@ -33,6 +47,7 @@ class DetailedSightPageViewController: UIViewController {
     public var Description = ""
     public var _description = ""
     
+    public var Sight: Sight?
     
     private let SightMap = MKMapView()
     public var Lat: Double = 0
@@ -47,6 +62,15 @@ class DetailedSightPageViewController: UIViewController {
         //Build the page
         Task{
             await BuildThePage()
+            if(City == nil)  {throw DetailedPageErrors.CityIsNull}
+            if(TripList.existInTripList(name: City!.CityName)){
+                var city = TripList.getCitybyName(name: City!.CityName)
+                var favourites = city?.FavouriteSights
+                var contains = favourites?.contains(where: {$0.xid == Sight?.xid})
+                if(contains!){
+                    FavouriteButton.isSelected = true
+                }
+            }
         }
     }
     
@@ -63,11 +87,43 @@ class DetailedSightPageViewController: UIViewController {
     }
     
     @objc func FavouriteButtonTapped(sender: UIButton) {
+        WereUpdatesHere = true;
         sender.isSelected = !sender.isSelected
-        if(City != nil){
+        if(Sight == nil) { DetailedPageErrors.SightIsNull }
+        if (City == nil) { DetailedPageErrors.CityIsNull }
+        if(sender.isSelected){
+            City?.FavouriteSights.insert(Sight!, at: 0)
             TripList.addToTripList(new: City!)
+            TripList.updateProperties(city: City!)
+            var updatedCity  = TripList.getCitybyName(name: City!.CityName)
+            City = updatedCity
+        }else{
+            var currentTripCity = TripList.getCitybyName(name: City!.CityName)
+            if(currentTripCity == nil){DetailedPageErrors.CityIsNull}
+            var favourites = currentTripCity!.FavouriteSights
+            favourites.removeAll(where: { $0.xid == Sight?.xid })
+            currentTripCity?.FavouriteSights = favourites
+            TripList.addToTripList(new: currentTripCity!)
+            TripList.updateProperties(city: currentTripCity!)
+            City = TripList.getCitybyName(name: currentTripCity!.CityName)
         }
     }
+    
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        if(City == nil) {DetailedPageErrors.CityIsNull}
+        if(WereUpdatesHere){
+            City = TripList.getCitybyName(name: City!.CityName)
+            updateCityDelegate?.updateTheCity(city: City!)
+        }else{
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    
+    
+    
     
     private func BuildThePage() async{
         scrollView = UIScrollView(frame: view.bounds)

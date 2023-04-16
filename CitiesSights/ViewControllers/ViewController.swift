@@ -73,9 +73,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(identifier: "DetailedSightPageViewController") as? DetailedSightPageViewController{
             let controller = DetailedSightPageViewController()
-             
             
-            vc.City = MyCity
+            controller.updateCityDelegate = self
+            vc.updateCityDelegate = controller.updateCityDelegate
+            vc.City = self.MyCity
+            
             
             let cell = Sights[indexPath.row]
             if let imageURL = cell.preview?.source{
@@ -83,7 +85,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             vc.Title = cell.name
             
-            
+            vc.Sight = cell
             
             if let Description = cell.wikipediaExtracts?.text{
                 vc.Description = Description
@@ -310,17 +312,24 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         print(#function)
         let name = CityTextField.text;
         let code = CountryCodeTextField.text;
-        var url = "https://api.opentripmap.com/0.1/en/places/geoname?name=\(name!)&country=\(code!)&apikey=5ae2e3f221c38a28845f05b62f0092f270a88190119b3678a057dd4a".lowercased()
         
-        var data = try! await ClientService().fetchData(uri:url)
-        var json = try! JSONSerialization.jsonObject(with: data) as? [String:Any]
-        print(json)
-        if(json?["status"] as! String != "OK"){
-            throw WebClientErros.PageNotFound;
+        //decide do we have the same city in our TripList
+        if(TripList.existInTripList(name: name!)){
+            MyCity = TripList.getCitybyName(name: name!)
+            var b = 3
         }
-        let City = try! JSONDecoder().decode(CityModel.self,from: data)
-        MyCity = City
-        
+        else{
+            var url = "https://api.opentripmap.com/0.1/en/places/geoname?name=\(name!)&country=\(code!)&apikey=5ae2e3f221c38a28845f05b62f0092f270a88190119b3678a057dd4a".lowercased()
+            
+            var data = try! await ClientService().fetchData(uri:url)
+            var json = try! JSONSerialization.jsonObject(with: data) as? [String:Any]
+            print(json)
+            if(json?["status"] as! String != "OK"){
+                throw WebClientErros.PageNotFound;
+            }
+            let City = try! JSONDecoder().decode(CityModel.self,from: data)
+            MyCity = City
+        }
     }
     
     
@@ -361,6 +370,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBAction func onTripButtonClick(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(identifier: "TripViewController") as? TripViewController{
             let controller = TripViewController()
+            controller.updateCityDelegate = self
+            vc.updateCityDelegate = controller.updateCityDelegate
+            vc.CityMainPage = MyCity
             self.navigationController?.pushViewController(vc, animated: true)
         }
     }
@@ -376,7 +388,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     
-     
+    
     
     
     private let APIKEY = "5ae2e3f221c38a28845f05b62f0092f270a88190119b3678a057dd4a"
@@ -392,5 +404,14 @@ extension ViewController: ReturnHistoryRecordDelegate{
             }
         }
     }
+}
+
+extension ViewController: UpdateTheCityDelegate{
+    func updateTheCity(city: CityModel) {
+        self.MyCity = city
+        TripList.updateProperties(city: city)
+    }
+    
+    
 }
 

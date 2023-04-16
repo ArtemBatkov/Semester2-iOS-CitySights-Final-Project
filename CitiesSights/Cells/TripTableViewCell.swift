@@ -15,6 +15,8 @@ class TripTableViewCell: UITableViewCell {
     public var Avatar: UIImageView = UIImageView()
     private var Title: UILabel = UILabel()
     
+    public var IsTransperant = false
+    
     public var avatar: Data? = nil {
         didSet{
             if let avatarData = avatar {
@@ -33,13 +35,12 @@ class TripTableViewCell: UITableViewCell {
         }
     }
     
-    
+    public var TheCity: CityModel?
     
     public var defAvatar = UIImage(named: "trip_blank")
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         Title.text = title
         SetUpCell()
     }
@@ -49,6 +50,7 @@ class TripTableViewCell: UITableViewCell {
     }
     
     private func SetUpCell(){
+        
         //stack adj
         stackView.axis = .vertical
         stackView.spacing = 15

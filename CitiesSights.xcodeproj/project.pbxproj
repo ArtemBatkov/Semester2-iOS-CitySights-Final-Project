@@ -27,6 +27,7 @@
 		1D8880C729E1EDA400A3852A /* TripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8880C629E1EDA400A3852A /* TripViewController.swift */; };
 		1D8880CE29E1FED200A3852A /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D8880CC29E1FED200A3852A /* TripTableViewCell.swift */; };
 		1D8880CF29E1FED200A3852A /* TripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1D8880CD29E1FED200A3852A /* TripTableViewCell.xib */; };
+		1DD0761B29E74956001D581A /* EditTripDetailedPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD0761A29E74956001D581A /* EditTripDetailedPageViewController.swift */; };
 		1DF884F629CFC1360015504F /* SightService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF884F529CFC1360015504F /* SightService.swift */; };
 		1DFB4C7129D0D42300A36648 /* DetailedSightPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DFB4C7029D0D42300A36648 /* DetailedSightPageViewController.swift */; };
 /* End PBXBuildFile section */
@@ -54,6 +55,7 @@
 		1D8880C629E1EDA400A3852A /* TripViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripViewController.swift; sourceTree = "<group>"; };
 		1D8880CC29E1FED200A3852A /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		1D8880CD29E1FED200A3852A /* TripTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripTableViewCell.xib; sourceTree = "<group>"; };
+		1DD0761A29E74956001D581A /* EditTripDetailedPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditTripDetailedPageViewController.swift; sourceTree = "<group>"; };
 		1DF884F529CFC1360015504F /* SightService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightService.swift; sourceTree = "<group>"; };
 		1DFB4C7029D0D42300A36648 /* DetailedSightPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailedSightPageViewController.swift; path = CitiesSights/Services/SightService/DetailedSightPageViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
@@ -141,6 +143,7 @@
 				1D6B115629DDEC7A00E2495C /* SearchHistoryViewController.swift */,
 				1D8880C629E1EDA400A3852A /* TripViewController.swift */,
 				1D86D04529E439C40063BBCD /* TripDetailedViewController.swift */,
+				1DD0761A29E74956001D581A /* EditTripDetailedPageViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 				1D7571DA299B1F3E0007CFA9 /* SceneDelegate.swift in Sources */,
 				1D8880C529E1ECB700A3852A /* TripList.swift in Sources */,
 				1D6B115729DDEC7A00E2495C /* SearchHistoryViewController.swift in Sources */,
+				1DD0761B29E74956001D581A /* EditTripDetailedPageViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
