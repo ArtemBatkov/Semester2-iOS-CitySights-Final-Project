@@ -8,7 +8,9 @@
 import UIKit
 
 
-class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, UIPickerViewDelegate, UIPickerViewDataSource {
+   
+    
     
     @IBOutlet weak var CityTextField: UITextField!
     
@@ -34,6 +36,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(onCountryCodeTapped))
+        CountryCodeTextField.addGestureRecognizer(tapGesture)
+        
+        
+        
         // Do any additional setup after loading the view.
         let nib = UINib(nibName: "SightCellTableViewCell", bundle: nil)
         table.register(nib, forCellReuseIdentifier: "SightCellTableViewCell")
@@ -67,8 +74,67 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         table.tableHeaderView = searchSpinner
         table.contentInset = UIEdgeInsets(top: 50, left: 0, bottom: 0, right: 0)
         
+        
+        codePicker.delegate = self
+        codePicker.dataSource = self
+        
+        codePicker.isHidden = true
+        
+        view.addSubview(codePicker)
+        codePicker.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            codePicker.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            codePicker.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            
+            codePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            codePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            
+//            CountryCodeTextField.leadingAnchor.constraint(equalTo: CityTextField.leadingAnchor),
+//            CountryCodeTextField.trailingAnchor.constraint(equalTo: CityTextField.trailingAnchor),
+//            CountryCodeTextField.topAnchor.constraint(equalTo: CityTextField.topAnchor),
+//            CountryCodeTextField.widthAnchor.constraint(equalTo: CityTextField.widthAnchor),
+
+
+        ])
+        
+        codePicker.backgroundColor = .lightGray
+        codePicker.selectRow(0, inComponent: 0, animated: true)
     }
+    
+    
+    
+    @objc func onCountryCodeTapped(){
+        codePicker.isHidden = false
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        codeList.count
+    }
+   
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        CountryCodeTextField?.text = codeList[row]
+        codePicker.isHidden = true
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return codeList[row]
+    }
+    
+    
+    private let codePicker = UIPickerView()
+    private let codeList = ["AUTO", "AF", "AX", "AL", "DZ", "AS", "AD", "AO", "AI", "AQ", "AG", "AR", "AM", "AW", "AU", "AT", "AZ", "BH", "BS", "BD", "BB", "BY", "BE", "BZ", "BJ", "BM", "BT", "BO", "BQ", "BA", "BW", "BV", "BR", "IO", "BN", "BG", "BF", "BI", "KH", "CM", "CA", "CV", "KY", "CF", "TD", "CL", "CN", "CX", "CC", "CO", "KM", "CG", "CD", "CK", "CR", "CI", "HR", "CU", "CW", "CY", "CZ", "DK", "DJ", "DM", "DO", "EC", "EG", "SV", "GQ", "ER", "EE", "ET", "FK", "FO", "FJ", "FI", "FR", "GF", "PF", "TF", "GA", "GM", "GE", "DE", "GH", "GI", "GR", "GL", "GD", "GP", "GU", "GT", "GG", "GN", "GW", "GY", "HT", "HM", "VA", "HN", "HK", "HU", "IS", "IN", "ID", "IR", "IQ", "IE", "IM", "IL", "IT", "JM", "JP", "JE", "JO", "KZ", "KE", "KI", "KP", "KR", "KW", "KG", "LA", "LV", "LB", "LS", "LR", "LY", "LI", "LT", "LU", "MO", "MK", "MG", "MW", "MY", "MV", "ML", "MT", "MH", "MQ", "MR", "MU", "YT", "MX", "FM", "MD", "MC", "MN", "ME", "MS", "MA", "MZ", "MM", "NA", "NR", "NP", "NL", "NC", "NZ", "NI", "NE", "NG", "NU", "NF", "MP", "NO", "OM", "PK", "PW", "PS", "PA", "PG", "PY", "PE", "PH", "PN", "PL", "PT", "PR", "QA", "RE", "RO", "RU", "RW", "BL", "SH", "KN", "LC", "MF", "PM", "VC", "WS", "SM", "ST", "SA", "SN", "RS", "SC", "SL", "SG", "SX", "SK", "SI", "SB", "SO", "ZA", "GS", "SS", "ES", "LK", "SD", "SR", "SJ", "SZ", "SE", "CH", "SY", "TW", "TJ", "TZ", "TH", "TL", "TG", "TK", "TO", "TT", "TN", "TR", "TM", "TC", "TV", "UG", "UA", "AE", "GB", "US", "UM", "UY", "UZ", "VU", "VE", "VN", "VG", "VI", "WF", "EH", "YE", "ZM", "ZW"]
+                            
+  
+    
+    
+    
     private let searchSpinner = UIActivityIndicatorView()
+    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if let vc = storyboard?.instantiateViewController(identifier: "DetailedSightPageViewController") as? DetailedSightPageViewController{
@@ -320,6 +386,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         else{
             var url = "https://api.opentripmap.com/0.1/en/places/geoname?name=\(name!)&country=\(code!)&apikey=5ae2e3f221c38a28845f05b62f0092f270a88190119b3678a057dd4a".lowercased()
+            if(code == "AUTO"){
+                url = "https://api.opentripmap.com/0.1/en/places/geoname?name=\(name!)&apikey=5ae2e3f221c38a28845f05b62f0092f270a88190119b3678a057dd4a".lowercased()
+            }
             
             var data = try! await ClientService().fetchData(uri:url)
             var json = try! JSONSerialization.jsonObject(with: data) as? [String:Any]
@@ -393,6 +462,15 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     private let APIKEY = "5ae2e3f221c38a28845f05b62f0092f270a88190119b3678a057dd4a"
     private var sights: SightCollection?
+    
+    
+    @IBAction func onTestPageClicked(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(identifier: "TestPageViewController") as? TestPageViewController{
+            self.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+    
+    
     
 }
 

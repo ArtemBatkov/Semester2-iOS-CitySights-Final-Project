@@ -20,7 +20,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="J2w-u5-CiR">
                                 <rect key="frame" x="0.0" y="123" width="393" height="85.333333333333314"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="RU" borderStyle="roundedRect" placeholder="Country code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ezU-ct-O2S">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="AUTO" borderStyle="roundedRect" placeholder="Country code" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ezU-ct-O2S">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="17"/>
                                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -29,7 +29,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="BqJ-eV-AFW">
                                         <rect key="frame" x="0.0" y="27.000000000000004" width="393" height="58.333333333333343"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Moscow" borderStyle="roundedRect" placeholder="Type city..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNJ-rC-kWj">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Saint-Petersburg" borderStyle="roundedRect" placeholder="Type city..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fNJ-rC-kWj">
                                                 <rect key="frame" x="0.0" y="0.0" width="183.33333333333334" height="58.333333333333336"/>
                                                 <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -50,6 +50,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="width" secondItem="fNJ-rC-kWj" secondAttribute="width" multiplier="2.14364" id="Qo8-rV-hyV"/>
                                     <constraint firstItem="ezU-ct-O2S" firstAttribute="height" secondItem="J2w-u5-CiR" secondAttribute="height" multiplier="0.2" id="pro-GK-5yu"/>
                                 </constraints>
                             </stackView>
@@ -62,6 +63,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstAttribute="width" secondItem="fNJ-rC-kWj" secondAttribute="width" multiplier="2.14364" id="2EL-Z4-dGG"/>
                             <constraint firstItem="J2w-u5-CiR" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="3XH-S7-MoJ"/>
                             <constraint firstItem="J2w-u5-CiR" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Kbq-mO-JO8"/>
                             <constraint firstItem="J2w-u5-CiR" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.1" id="TsW-Sy-zyo"/>
@@ -69,7 +71,6 @@
                             <constraint firstItem="wbo-3n-9KL" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="ij8-ji-bL5"/>
                             <constraint firstItem="wbo-3n-9KL" firstAttribute="top" secondItem="J2w-u5-CiR" secondAttribute="bottom" constant="10" id="pIM-CA-cl1"/>
                             <constraint firstAttribute="bottom" secondItem="wbo-3n-9KL" secondAttribute="bottom" id="tGI-ym-MnV"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="J2w-u5-CiR" secondAttribute="trailing" id="xvz-eb-Rda"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ThZ-4e-1YB">
@@ -156,6 +157,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Shz-iP-mMj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1962.5954198473282" y="7.746478873239437"/>
+        </scene>
+        <!--Test Page View Controller-->
+        <scene sceneID="qPj-r2-GI7">
+            <objects>
+                <viewController restorationIdentifier="TestPageViewController" storyboardIdentifier="TestPageViewController" id="1VR-oQ-azy" customClass="TestPageViewController" customModule="CitiesSights" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="WlY-hN-zgK">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="6Je-fF-TUV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dtp-Sc-ECt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-698" y="-1"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Z4w-nE-ATu">
