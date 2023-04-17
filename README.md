@@ -1,5 +1,5 @@
 # Sight Navigator App
-#### Description: the app allows you to search for some city's sights. Collect them and use its information for you purpose.
+#### Description: the app allows you to search for some sights of a city, collect them and use the information for you purpose.
 #### The app uses some APIs.
 
 ## Functionality
