@@ -15,11 +15,52 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIScrollViewDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        Task{
-            try! await FillFakeData()
-        }
+//        lazy var persistentContainer: NSPersistentContainer = {
+//            let container = NSPersistentContainer(name: "HistoryModel")
+//            container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+//                if let error = error as NSError? {
+//                    fatalError("Unresolved error \(error), \(error.userInfo)")
+//                }
+//            })
+//            return container
+//        }()
+//
+//        LoadTheHistory()
+        
+        
+//        Task{
+//            try! await FillFakeData()
+//        }
         return true
     }
+    
+//    func saveContext () {
+//        let context = persistentContainer.viewContext
+//        if context.hasChanges {
+//            do {
+//                try context.save()
+//            } catch {
+//                let nserror = error as NSError
+//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+//            }
+//        }
+//    }
+    
+//    func LoadTheHistory(){
+//        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+//        let request = NSFetchRequest<HistoryModel>(entityName: "HistoryModel")
+//        do {
+//            let historyItems = try context.fetch(request)
+//            // здесь можно использовать полученный массив и делать с ним, что нужно
+//        } catch let error as NSError {
+//            print("Could not fetch. \(error), \(error.userInfo)")
+//        }
+//
+//
+//    }
+//
+    
+    
     
     private func FillFakeData()async throws{
         let code = "ru"
@@ -32,14 +73,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UIScrollViewDelegate {
                 throw WebClientErros.PageNotFound;
             }
             var City = try! JSONDecoder().decode(CityModel.self,from: data)
-            var id = try! await GooglePlayService().getGoogleCityID(find: City)
-            City.CityGooglePlaceId = id
-            var photos = try! await GooglePlayService().getGooglePhotoCandidates(place: id)
-            City.CityGooglePlacePhotoReferences = photos
-            var DataList = await GooglePlayService().getGooglePhotoAsData(candidates: photos)
-            debugPrint("DataList size: \(DataList.count) --------")
-            City.CityGooglePlacePhotoData = DataList
-            TripList.addToTripList(new: City)
+            
         }
     }
 

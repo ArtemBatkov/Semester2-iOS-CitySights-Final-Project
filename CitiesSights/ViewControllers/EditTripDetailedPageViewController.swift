@@ -39,7 +39,8 @@ class EditTripDetailedPageViewController: UIViewController {
 
         
         let buttonWidth: CGFloat = scrollView.frame.width - 20
-        let buttonHeight: CGFloat = 250
+        let buttonHeight: CGFloat = 550
+        
 
         for i in 0..<images.count {
             let button = createButtonWithImage(images[i])
@@ -72,7 +73,8 @@ class EditTripDetailedPageViewController: UIViewController {
 
     func createButtonWithImage(_ image: UIImage) -> UIButton {
         let button = UIButton(type: .custom)
-        button.frame = CGRect(x: 0, y: scrollView.subviews.count * 360, width: Int(scrollView.frame.width), height: 350)
+        button.frame = CGRect(x: 0, y: scrollView.subviews.count * 360, width: Int(scrollView.frame.width), height: 150)
+        button.contentMode = .scaleAspectFit
         button.setImage(image, for: .normal)
         button.setImage(image.alpha(0.5), for: .selected)
         button.addTarget(self, action: #selector(buttonTapped(_:)), for: .touchUpInside)

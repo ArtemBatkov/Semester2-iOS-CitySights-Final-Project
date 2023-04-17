@@ -85,40 +85,86 @@ class DetailedSightPageViewController: UIViewController {
             SightPhoto = UIImageView(image: photo)
         }
     }
-    
+    private var IsGoogleUpdate = false
     @objc func FavouriteButtonTapped(sender: UIButton) {
-        WereUpdatesHere = true;
-        sender.isSelected = !sender.isSelected
-        if(Sight == nil) { DetailedPageErrors.SightIsNull }
-        if (City == nil) { DetailedPageErrors.CityIsNull }
-        if(sender.isSelected){
-            City?.FavouriteSights.insert(Sight!, at: 0)
-            TripList.addToTripList(new: City!)
-            TripList.updateProperties(city: City!)
-            var updatedCity  = TripList.getCitybyName(name: City!.CityName)
-            City = updatedCity
-        }else{
-            var currentTripCity = TripList.getCitybyName(name: City!.CityName)
-            if(currentTripCity == nil){DetailedPageErrors.CityIsNull}
-            var favourites = currentTripCity!.FavouriteSights
-            favourites.removeAll(where: { $0.xid == Sight?.xid })
-            currentTripCity?.FavouriteSights = favourites
-            TripList.addToTripList(new: currentTripCity!)
-            TripList.updateProperties(city: currentTripCity!)
-            City = TripList.getCitybyName(name: currentTripCity!.CityName)
+        Task{
+            //sender.isEnabled = false
+            WereUpdatesHere = true;
+            sender.isSelected = !sender.isSelected
+            if(Sight == nil) { DetailedPageErrors.SightIsNull }
+            if (City == nil) { DetailedPageErrors.CityIsNull }
+            if(sender.isSelected){
+                if(!TripList.existInTripList(name: City!.CityName)){
+                    do{
+                        
+                        navigationItem.hidesBackButton = true
+                        let activityIndicatorView = UIActivityIndicatorView(style: .gray)
+                           activityIndicatorView.startAnimating()
+                           let barButton = UIBarButtonItem(customView: activityIndicatorView)
+                           navigationItem.setLeftBarButton(barButton, animated: true)
+                        IsGoogleUpdate = true
+                        //insert to google
+                        var id = await GooglePlayService().getGoogleCityID(find: City!)
+                        City!.CityGooglePlaceId = id
+                        var photos = await GooglePlayService().getGooglePhotoCandidates(place: id)
+                        City!.CityGooglePlacePhotoReferences = photos
+                        var DataList = await GooglePlayService().getGooglePhotoAsData(candidates: photos)
+                        debugPrint("DataList size: \(DataList.count) --------")
+                        City!.CityGooglePlacePhotoData = DataList
+                        City!.FavouriteSights.append(Sight!)
+                        TripList.addToTripList(new: City!)
+                        City = TripList.getCitybyName(name: City!.CityName)
+                        IsGoogleUpdate = false
+                        navigationItem.setLeftBarButton(nil, animated: false)
+                        navigationItem.hidesBackButton = false
+                        
+                    }
+                    catch{
+                        debugPrint(error)
+                    }
+                }
+                else{
+                    City?.FavouriteSights.insert(Sight!, at: 0)
+                    TripList.addToTripList(new: City!)
+                    TripList.updateProperties(city: City!)
+                    var updatedCity  = TripList.getCitybyName(name: City!.CityName)
+                    City = updatedCity
+                }
+            }else{
+                var currentTripCity = TripList.getCitybyName(name: City!.CityName)
+                if(currentTripCity == nil){DetailedPageErrors.CityIsNull}
+                var favourites = currentTripCity!.FavouriteSights
+                favourites.removeAll(where: { $0.xid == Sight?.xid })
+                currentTripCity?.FavouriteSights = favourites
+                TripList.addToTripList(new: currentTripCity!)
+                TripList.updateProperties(city: currentTripCity!)
+                City = TripList.getCitybyName(name: currentTripCity!.CityName)
+            }
+           // sender.isEnabled = true;
         }
+        
     }
     
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        if(City == nil) {DetailedPageErrors.CityIsNull}
-        if(WereUpdatesHere){
-            City = TripList.getCitybyName(name: City!.CityName)
-            updateCityDelegate?.updateTheCity(city: City!)
-        }else{
-            navigationController?.popViewController(animated: true)
-        }
+         
+            if(City == nil) {DetailedPageErrors.CityIsNull}
+            if(WereUpdatesHere){
+                var oldCity = City
+                var trips = TripList.getTripList()
+                City = TripList.getCitybyName(name: City!.CityName)
+                if(City == nil || IsGoogleUpdate){
+                    navigationController?.popViewController(animated: true)
+                    return
+                }
+                else{
+                    updateCityDelegate?.updateTheCity(city: City!)
+                }
+            }else{
+                navigationController?.popViewController(animated: true)
+            }
+        
     }
     
     

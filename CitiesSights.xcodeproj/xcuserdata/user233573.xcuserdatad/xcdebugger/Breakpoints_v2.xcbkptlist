@@ -3,4 +3,102 @@
    uuid = "F1C22447-2198-471D-95DA-E3AC03647177"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9B432622-3CD8-4A1B-A518-3050238358BF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CitiesSights/Services/SightService/DetailedSightPageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "117"
+            endingLineNumber = "117"
+            landmarkName = "FavouriteButtonTapped(sender:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "9B432622-3CD8-4A1B-A518-3050238358BF - ce57a53ba7174891"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in CitiesSights.DetailedSightPageViewController.FavouriteButtonTapped(sender: __C.UIButton) -&gt; ()"
+                  moduleName = "CitiesSights"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233573/Desktop/Final%20Project%20Semester%202/Semester2-iOS-CitySights-Final-Project/CitiesSights/Services/SightService/DetailedSightPageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "11104">
+               </Location>
+               <Location
+                  uuid = "9B432622-3CD8-4A1B-A518-3050238358BF - ce57a53ba71748b0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for closure #1 @Sendable () async -&gt; () in CitiesSights.DetailedSightPageViewController.FavouriteButtonTapped(sender: __C.UIButton) -&gt; ()"
+                  moduleName = "CitiesSights"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233573/Desktop/Final%20Project%20Semester%202/Semester2-iOS-CitySights-Final-Project/CitiesSights/Services/SightService/DetailedSightPageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "117"
+                  endingLineNumber = "117"
+                  offsetFromSymbolStart = "11360">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "45F58BBA-3E2E-4EEF-9087-4E38849CE680"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CitiesSights/Services/SightService/DetailedSightPageViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "viewWillDisappear(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "45F58BBA-3E2E-4EEF-9087-4E38849CE680 - 33d2d10ceb5950b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CitiesSights.DetailedSightPageViewController.viewWillDisappear(Swift.Bool) -&gt; ()"
+                  moduleName = "CitiesSights"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233573/Desktop/Final%20Project%20Semester%202/Semester2-iOS-CitySights-Final-Project/CitiesSights/Services/SightService/DetailedSightPageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "7712">
+               </Location>
+               <Location
+                  uuid = "45F58BBA-3E2E-4EEF-9087-4E38849CE680 - 33d2d10ceb5950b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "CitiesSights.DetailedSightPageViewController.viewWillDisappear(Swift.Bool) -&gt; ()"
+                  moduleName = "CitiesSights"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/user233573/Desktop/Final%20Project%20Semester%202/Semester2-iOS-CitySights-Final-Project/CitiesSights/Services/SightService/DetailedSightPageViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "5468">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

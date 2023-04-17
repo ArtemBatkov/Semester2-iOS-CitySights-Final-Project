@@ -37,7 +37,8 @@ class SearchHistoryViewController: UIViewController, UITableViewDataSource, UITa
         SearchBar.delegate = self
         
         //DEBUG MODE ONLY
-        FillFakeHistory()
+        //FillFakeHistory()
+        FilteredHistory = HistoryListModel.getHistoryList()
     }
     
     private func FillFakeHistory(){
